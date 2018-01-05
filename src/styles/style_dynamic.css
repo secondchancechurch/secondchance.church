@@ -1,0 +1,583 @@
+    /* Webkit */
+    ::selection {
+    background: #b11e23;
+    }
+    /* Gecko/Mozilla */
+    ::-moz-selection {
+    background: #b11e23;
+    }
+
+
+
+
+    body{
+    	    	 color: #b7b7b7;     	 font-size: 14px;     	font-weight: 400;    }
+            body,
+		.wrapper,
+        .content,
+        .full_width,
+        .overlapping_content .content > .container,
+		.more_facts_holder,
+		.comment_holder .comment #respond textarea,
+		.comment_holder .comment #respond input[type='text'],
+		.comment_holder .comment #respond input[type='email'],
+		.content .container
+		{
+        	background-color:#f7f7f7;
+        }
+		.angled-section polygon{
+			fill: #f7f7f7;
+		}
+				
+    
+
+
+.header_bottom,
+.header_top,
+.fixed_top_header .bottom_header{
+	background-color: rgba(255,255,255,0);
+}
+
+
+.header_bottom,
+.header_top,
+.fixed_top_header .bottom_header{
+    border-bottom: 0;
+}
+
+.header_bottom,
+.fixed_top_header .bottom_header{
+    box-shadow: none;
+}
+
+.header_top .right .inner > div:first-child,
+.header_top .right .inner > div,
+.header_top .left .inner > div:last-child,
+.header_top .left .inner > div {
+    border: none;
+}
+
+
+
+
+
+
+
+
+
+.header_top,
+.fixed_top_header .top_header,
+.fixed_top_header nav.mobile_menu{
+	background-color: rgba(255,255,255,0);
+}
+
+
+
+
+
+						.content{
+				margin-top: -100px;
+			}
+				
+	
+
+
+
+
+        header.fixed_hiding .q_logo a,
+        header.fixed_hiding .q_logo{
+            max-height: 114.5px;
+        }
+
+
+
+
+    .touch section.parallax_section_holder{
+		height: auto !important;
+		min-height: 300px;  
+		background-position: center top !important;  
+		background-attachment: scroll;
+        background-size: cover;
+	}
+
+
+
+nav.main_menu > ul > li > a{
+	 color: #ffffff; 		 font-size: 13px;      line-height: 59px; 	 font-style: normal; 	 font-weight: 300; 	 letter-spacing: 2px; 	 text-transform: uppercase; }
+
+
+		nav.main_menu ul li a span.underline_dash,
+		nav.vertical_menu ul li a span.underline_dash{
+		background-color: #ffffff !important;width: 30px;left: 0; transform: none; -webkit-transform: none		}
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+nav.mobile_menu ul li a,
+nav.mobile_menu ul li h3{
+	 color: #222222; 		 font-size: 13px; 		 font-style: normal; 	 font-weight: 300; 		letter-spacing: 2px;
+			text-transform: uppercase;
+	}
+
+
+	nav.mobile_menu ul li span.mobile_arrow i, nav.mobile_menu ul li span.mobile_arrow i {
+	    color: #222222;
+	}
+
+nav.mobile_menu ul li a:hover,
+nav.mobile_menu ul li.active > a,
+nav.mobile_menu ul li.current-menu-item > a{
+	color: #7c7c7c;
+}
+
+
+
+
+
+.title h1{
+	color: #222222; 					}
+
+
+	.title.title_size_medium h1{
+	font-size: 38px; 	line-height: 40px; 	font-weight: 300;     letter-spacing: 9px;  
+	}
+h2,
+.h2,
+h2 a{
+	color: #222222; 		font-size: 38px; 	line-height: 40px; 	font-style: normal; 	font-weight: 200;     letter-spacing: 9px; 	text-transform: uppercase; }
+h5,
+.h5,
+h5 a,
+.q_icon_with_title .icon_text_holder h5.icon_title{
+	color: #222222; 		font-size: 16px; 	line-height: 31px; 	font-style: normal; 	font-weight: 400;     letter-spacing: 0px; 	text-transform: none; }
+h6,
+.h6,
+h6 a {
+	color: #222222; 		font-family: 'Raleway', sans-serif;
+		font-size: 12px; 	line-height: 19px; 	font-style: normal;  	font-weight: 400; 	letter-spacing: 0px; 	text-transform: none; }
+
+    p{
+    	color: #b7b7b7;    	    	font-size: 14px;    	line-height: 26px;    	font-style: normal;    	font-weight: 400;    	    	    }
+    .filter_holder ul li span,
+    blockquote h5,
+    .q_social_icon_holder .simple_social,
+    .header-widget.widget_nav_menu ul.menu li a,
+    .side_menu a,
+    .side_menu li,
+    .side_menu span,
+    .side_menu p,
+    .side_menu .widget.widget_rss li a.rsswidget,
+    .side_menu #wp-calendar caption,
+    .side_menu #wp-calendar th, 
+    .side_menu #wp-calendar td,
+    aside .widget #lang_sel_list li a,
+    aside .widget #lang_sel li a,
+    aside .widget #lang_sel_click li a,
+    .wpb_widgetised_column .widget #lang_sel_list li a,
+    .wpb_widgetised_column .widget #lang_sel li a,
+    .wpb_widgetised_column .widget #lang_sel_click li a,
+    section.side_menu #lang_sel_list li a,
+    section.side_menu #lang_sel li a,
+    section.side_menu #lang_sel_click li a,
+    footer #lang_sel_list li a,
+    footer #lang_sel li a,
+    footer #lang_sel_click li a,
+    footer #lang_sel_list.lang_sel_list_horizontal a,
+    footer #lang_sel_list.lang_sel_list_vertical a,
+    .side_menu #lang_sel_list.lang_sel_list_horizontal a,
+    .side_menu #lang_sel_list.lang_sel_list_vertical a,
+    #lang_sel_footer a{
+    	color: #b7b7b7;    }
+    .header_top #lang_sel > ul > li > a, 
+    .header_top #lang_sel_click > ul > li> a,
+    footer #lang_sel ul li a,
+    footer #lang_sel ul ul a,
+    footer #lang_sel_click ul li a,
+    footer #lang_sel_click ul ul a,
+    footer #lang_sel_click ul ul a span,
+    section.side_menu #lang_sel ul li a,
+    section.side_menu #lang_sel ul ul a,
+    section.side_menu #lang_sel ul ul a:visited,
+    section.side_menu #lang_sel_click > ul > li > a,
+    section.side_menu #lang_sel_click ul ul a,
+    section.side_menu #lang_sel_click ul ul a:visited{
+    	color: #b7b7b7 !important;    }
+    a, p a{
+	color: #ffffff;			}
+
+	 	h1 a:hover,h2 a:hover,h3 a:hover,h4 a:hover,h5 a:hover,h6 a:hover,
+	.q_icon_with_title .icon_with_title_link,
+	.blog_holder article .post_description a:hover,
+	.blog_holder.masonry article .post_info a:hover,
+	.breadcrumb .current,
+	.breadcrumb a:hover,
+	.portfolio_social_holder a:hover,
+	.latest_post_inner .post_infos a:hover{
+		color: #ffffff;
+	}
+	a:hover,p a:hover,
+h1 a:hover,h2 a:hover,h3 a:hover,h4 a:hover,h5 a:hover,h6 a:hover,
+.q_tabs .tabs-nav li a:hover,
+.q_icon_with_title .icon_with_title_link:hover,
+.blog_holder article .post_description a:hover,
+.blog_holder.masonry article .post_info a:hover,
+.portfolio_social_holder a:hover,
+.latest_post_inner .post_infos a:hover{
+	color: #b11e23;	}
+
+
+
+
+
+
+
+.qbutton,
+.qbutton.medium,
+#submit_comment,
+.load_more a,
+.blog_load_more_button a,
+.post-password-form input[type='submit'],
+input.wpcf7-form-control.wpcf7-submit,
+input.wpcf7-form-control.wpcf7-submit:not([disabled]),
+.woocommerce table.cart td.actions input[type="submit"],
+.woocommerce input#place_order,
+.woocommerce-page input[type="submit"],
+.woocommerce .button
+	{
+	
+    
+		font-size: 13px; 				font-style: normal; 		font-weight: 400; 			border-radius: 0px; 		-moz-border-radius: 0px; 		-webkit-border-radius: 0px; 			 border-width: 1px;	}
+
+.qode-qbutton-main-color {
+			font-size: 13px; 				font-style: normal; 		font-weight: 400; 		}
+
+
+
+	.qbutton.small{
+
+					font-weight: 400; 					
+	}
+
+
+
+
+
+
+
+.google_map{
+	height: 750px;
+}
+
+
+
+
+
+
+	.footer_bottom_holder, #lang_sel_footer{
+		background-color:#ffffff;
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+.footer_bottom, .footer_bottom span, .footer_bottom p, .footer_bottom p a, .footer_bottom a, #lang_sel_footer ul li a,
+footer #lang_sel > ul > li > a,
+footer #lang_sel_click > ul > li > a,
+footer #lang_sel a.lang_sel_sel,
+footer #lang_sel_click a.lang_sel_sel,
+footer #lang_sel ul ul a,
+footer #lang_sel_click ul ul a,
+footer #lang_sel ul ul a:visited,
+footer #lang_sel_click ul ul a:visited,
+footer #lang_sel_list.lang_sel_list_horizontal a,
+footer #lang_sel_list.lang_sel_list_vertical a,
+#lang_sel_footer a,
+.footer_bottom ul li a {
+	color:#000000;
+}
+
+
+
+
+
+
+
+
+
+
+
+	.blog_holder.blog_large_image h2,
+	.blog_holder.blog_large_image h2 a,
+	.blog_holder.blog_single article h2
+	{
+	font-size: 34px;line-height: 35px;font-weight: 300;letter-spacing: 3px;	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*Blog Masonry Gallery - end */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    .side_menu_button > a,
+    .mobile_menu_button span,
+	.fixed_top_header .side_menu_button > a,
+    .fixed_top_header .popup_menu .line,
+    .fixed_top_header .mobile_menu_button span{ color: #222222;font-size: 26px; }
+
+    .popup_menu .line,
+    .popup_menu .line:after, .popup_menu .line:before{
+        background-color: #222222;
+    }
+ 
+ 
+ .vertical_menu_float .menu-item .second{
+	left: calc(100% + 30px); /*because of the padding*/
+}
+
+.vertical_menu_hidden aside.vertical_menu_area .vertical_menu_float .menu-item .second {
+	left: calc(100% + 40px);
+}
+
+ 
+ 
+ 
+
+
+
+
+	aside .vertical_menu_area_widget_holder,
+	aside .vertical_menu_area_widget_holder p,
+	aside .vertical_menu_area_widget_holder span
+	{
+		color: #ffffff;
+	}
+
+	.vertical_menu_area{
+		text-align:left;
+	}
+	
+
+	nav.vertical_menu > ul > li > a{
+	 color: #ffffff; 			font-family: 'Raleway', sans-serif;
+		 font-size: 13px; 	 font-style: normal; 	 font-weight: 200; 	 line-height: 59px; 	 letter-spacing: 2.4px; 	 text-transform: uppercase; 	}
+
+	nav.vertical_menu_toggle ul>li.menu-item-has-children>a>.plus,
+	nav.vertical_menu_on_click ul>li.menu-item-has-children>a>.plus,
+	nav.vertical_menu_float ul>li.menu-item-has-children>a>.plus{
+		margin-top: 25.5px;
+	}
+
+	nav.vertical_menu > ul > li.active > a,
+	nav.vertical_menu > ul > li:hover > a{
+	color: #ffffff;
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    .portfolio_main_holder .item_holder.thin_plus_only .thin_plus_only_icon {
+		}
+	.cf7_custom_style_1 textarea.wpcf7-form-control.wpcf7-textarea{
+	height: 92px;
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	.carousel-control .prev_nav,
+	.carousel-control .next_nav{
+	background-color: rgba(255,255,255,0); opacity: 1; border-width: 0px	}
+
+	.ls-nav-prev,
+	.ls-nav-next{
+	background-color: rgba(255,255,255,0)!important; opacity: 1!important; border-width: 0px!important;	
+	}
+	.carousel-control .prev_nav:hover,
+	.carousel-control .next_nav:hover{
+	background-color: rgba(255,255,255,0)	}
+
+	.ls-nav-prev:hover,
+	.ls-nav-next:hover{
+	background-color: rgba(255,255,255,0)!important;	}
+	.carousel-control .prev_nav i,
+	.carousel-control .next_nav i,
+	.ls-nav-prev:after,
+	.ls-nav-next:after{
+	font-size: 35px; color: rgba(255,255,255,1)	}
+    .vertical_menu_enabled.vertical_menu_transparency .carousel-control i{
+    font-size: 35px    }
+	.carousel-control .prev_nav:hover i,
+	.carousel-control .next_nav:hover i,
+	.ls-nav-prev:hover:after,
+	.ls-nav-next:hover:after{
+	color: rgba(255,255,255,0.2)	}
+
+
+
+
+
+
+    .masonry_gallery_item.square_big .masonry_gallery_item_inner .masonry_gallery_item_content{
+    text-align: center;    }
+
+
+    .masonry_gallery_item.square_small .masonry_gallery_item_inner .masonry_gallery_item_content{
+    text-align: center;    }
+
+
+    .masonry_gallery_item.rectangle_portrait .masonry_gallery_item_inner .masonry_gallery_item_content{
+    text-align: center;    }
+
+
+    .masonry_gallery_item.rectangle_landscape .masonry_gallery_item_inner .masonry_gallery_item_content{
+    text-align: center;    }
+
+
+
+
+
+
+
+

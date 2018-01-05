@@ -1,0 +1,9 @@
+<IfModule mod_rewrite.c>
+	RewriteEngine On
+
+	RewriteCond %{HTTP_HOST} ^mysecondchancechurch\.com$ [NC]
+  RewriteRule .* http://mysecondchance.church/$1 [R=302,L]
+
+  RewriteCond %{HTTP_HOST} ^mysecondchancechurch\.online$ [NC]
+  RewriteRule .* http://mysecondchance.church/$1 [R=302,L]
+</IfModule>
