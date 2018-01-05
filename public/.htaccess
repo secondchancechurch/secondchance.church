@@ -1,6 +1,9 @@
 <IfModule mod_rewrite.c>
 	RewriteEngine On
 
+  RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+  RewriteRule ^(.*)$ http://%1%{REQUEST_URI} [R=301,QSA,NC,L]
+
 	RewriteCond %{HTTP_HOST} ^mysecondchancechurch\.com$ [NC]
   RewriteRule .* http://mysecondchance.church/$1 [R=302,L]
 
