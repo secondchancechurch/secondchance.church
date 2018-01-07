@@ -235,7 +235,8 @@ class App extends Component {
   }
 
   componentWillMount = () => {
-    if (moment().day() === "Sunday" && moment(moment.tz("America/New_York").format('HH:mm').isBetween('10:55', '11:55'))) {
+    const estTime = moment(moment.tz("America/New_York").format('HH:mm'))._i;
+    if (moment().day() === 0 && (estTime >= '10:55' && estTime <= '11:55')) {
       this.setState({
         isLive: true,
       })
