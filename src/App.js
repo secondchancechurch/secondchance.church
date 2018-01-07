@@ -301,7 +301,7 @@ class App extends Component {
                 {this.state.isLive &&
                   <li>
                     <a
-                        href="//facebook.com/mysecondchancechurch/videos"
+                        href="//facebook.com/nobleperry/videos"
                         target="_blank"
                         rel="noopener"
                     >
@@ -356,7 +356,7 @@ class App extends Component {
                 </h3>
                 {this.state.isLive &&
                   <Button
-                    href="//facebook.com/mysecondchancechurch/videos"
+                    href="//facebook.com/nobleperry/videos"
                     target="_blank"
                     rel="noopener"
                   >
