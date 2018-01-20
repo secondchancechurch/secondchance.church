@@ -235,8 +235,11 @@ class App extends Component {
   }
 
   componentWillMount = () => {
+    if (window.location.pathname === '/give') {
+      window.location = "https://pushpay.com/pay/secondchancechurch"
+    }
     const estTime = moment(moment.tz("America/New_York").format('HH:mm'))._i;
-    if (moment().day() === 0 && (estTime >= '10:55' && estTime <= '11:55')) {
+    if (moment().day() === 0 && (estTime >= '10:50' && estTime <= '11:55')) {
       this.setState({
         isLive: true,
       })
@@ -302,7 +305,7 @@ class App extends Component {
                 {this.state.isLive &&
                   <li>
                     <a
-                        href="//facebook.com/nobleperry/videos"
+                        href="http://live.mysecondchancechurch.com"
                         target="_blank"
                         rel="noopener"
                     >
@@ -357,7 +360,7 @@ class App extends Component {
                 </h3>
                 {this.state.isLive &&
                   <Button
-                    href="//facebook.com/nobleperry/videos"
+                    href="http://live.mysecondchancechurch.com"
                     target="_blank"
                     rel="noopener"
                   >
