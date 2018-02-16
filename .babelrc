@@ -1,0 +1,8 @@
+{
+  "presets": [
+    "next/babel"
+  ],
+  "plugins": [
+    ["emotion", "babel-plugin-inline-import-graphql-ast", { "inline": true }]
+  ]
+}
