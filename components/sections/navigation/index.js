@@ -13,6 +13,9 @@ const Header = styled.header`
   position: relative;
   z-index: 10;
   color: #fff;
+  overflow: visible;
+  z-index: 100;
+  background-color: ${props => props.navOpen ? 'rgba(21,21,21,0.7)' : 'transparent'};
 `;
 
 const Logo = styled.div`
@@ -52,7 +55,7 @@ const MobileTrigger = styled.div`
   }
 `
 
-const Nav = styled.nav`
+const Nav = styled('nav')`
   display: flex;
   align-items: center;
   text-align: right;
@@ -115,6 +118,10 @@ const Nav = styled.nav`
       text-align: left;
       display: ${props => props.navOpen ? 'flex !important' : ''};
       margin-top: 30px;
+      background-color: ${props => props.navOpen ? 'rgba(21,21,21,0.7)' : 'transparent'};
+      height: ${props => props.navOpen ? '100vh' : 'auto'};
+      z-index: 100;
+      align-items: start;
       
       ul {
         padding: 0;
@@ -142,8 +149,6 @@ const Nav = styled.nav`
             background-color: ${colors.lightPrimary};
             margin-top: 15px;
           }
-          
-          
         }
       }
     }
@@ -169,7 +174,10 @@ export class Navigation extends Component {
     const { props } = this
 
     return (
-        <Header className="scroll_header_top_area light regular transparent page_header">
+        <Header
+          className="scroll_header_top_area light regular transparent page_header"
+          navOpen={this.state.navOpen}
+        >
           <Container className="header_inner" style={{padding: 20}}>
             <Logo>
               <a itemProp="url" href="/" style={{display: 'block'}}>
@@ -181,7 +189,7 @@ export class Navigation extends Component {
               <span onClick={this.mobileNav}>
                 {this.state.navOpen ?
                     <FontAwesomeIcon
-                        icon={["fas", "times-circle"]}
+                        icon={["fas", "times"]}
                         style={{fontSize: '1.5em'}}
                     /> :
                     <FontAwesomeIcon

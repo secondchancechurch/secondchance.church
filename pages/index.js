@@ -8,8 +8,10 @@ import ReactGA from 'react-ga';
 import fontawesome from '@fortawesome/fontawesome'
 import FontAwesomeIcon from '@fortawesome/react-fontawesome'
 import solid from '@fortawesome/fontawesome-free-solid'
+import brands from '@fortawesome/fontawesome-free-brands'
 
 import styled from 'react-emotion'
+import { darken } from 'polished'
 import { colors } from "../styles/vars";
 import { Container, Button } from "../styles/base/components";
 
@@ -73,6 +75,7 @@ const Card = styled('div')`
   @media (max-width: 768px) {
     max-width: 80%;
     grid-template-columns: 1fr;
+    margin-bottom: 60px;
     
     .image {
       grid-row: 1;
@@ -95,14 +98,84 @@ const Card = styled('div')`
     text-align: left;
     padding: 40px;
     background-color: ${colors.lightPrimary};
+    
+    ${Button} { 
+      margin-top: 15px;
+      
+      &:hover {
+        background-color: ${darken(0.1, '#B11E23')};
+        color: ${colors.lightPrimary};
+      }
+    }
+    
+    h4 {
+      text-transform: uppercase;
+    }
      
     ul {
       padding: 0;
       font-weight: 400;
       list-style-position: inside;
+      list-style: none;
       
       li:not(:last-of-type) {
         margin-bottom: 10px;
+      }
+    }
+  }
+`
+
+const TextButton = styled('a')`
+  display: block;
+  text-decoration: none;
+  color: #B11E23;
+  font-weight: 600;
+  margin-top: 30px;
+  transition: all 0.3s ease-in-out;
+  
+  svg {
+    transition: all 0.3s ease-in-out;
+    position: relative;
+    top: 1px;
+  } 
+  
+  &:hover {
+    color: ${darken(0.1, '#B11E23')};
+    transition: all 0.3s ease-in-out;
+    
+    svg {
+      margin-left: 4px;
+      transition: all 0.3s ease-in-out;
+    }
+  }
+`
+
+const Connect = styled('div')`
+  z-index: 10;
+  
+  ul {
+    list-style: none;
+    padding: 0;
+    
+    li {
+      display: inline-block;
+      
+        h4 {
+          color: ${colors.lightPrimary};
+          text-transform: uppercase;
+          letter-spacing: 1px;
+          margin-bottomn: 0;
+        }
+      
+        a {
+        color: ${colors.lightPrimary};
+        padding: 10px;
+        transition: all 0.3s ease-in-out;
+        
+        &:hover {
+          color: ${darken(0.1, '#B11E23')};
+          transition: all 0.3s ease-in-out;
+        }
       }
     }
   }
@@ -149,71 +222,113 @@ export default class Index extends Component {
         >
           <Navigation isLive={this.state.isLive} />
           <div>
-              <Container center>
-                <div
+            <Container center>
+              <div
+                  style={{
+                    color: '#FFF',
+                    zIndex: 10,
+                    padding: 20
+                  }}
+              >
+                <h1
                     style={{
-                      color: '#FFF',
-                      zIndex: 10,
-                      padding: 20
+                      fontSize: '2.5em',
+                      letterSpacing: '0.5px',
+                      textTransform: 'capitalize',
+                      marginBottom: '15px',
+                      display: 'block'
                     }}
                 >
-                  <h1
-                      style={{
-                        fontSize: '2.5em',
-                        letterSpacing: '0.5px',
-                        textTransform: 'capitalize',
-                        marginBottom: '15px',
-                        display: 'block'
-                      }}
-                  >
-                    A church for people who need a second chance.
-                  </h1>
-                  <h3
-                      style={{ lineHeight: '1em' }}
-                  >
-                    Sundays @ 11am Online
-                  </h3>
-                  {this.state.isLive &&
-                  <Button
-                      href="http://live.mysecondchancechurch.com"
-                      target="_blank"
-                      rel="noopener"
-                  >
-                    Watch Live
-                  </Button>
-                  }
+                  A church for people who need a second chance.
+                </h1>
+                <h3
+                    style={{ lineHeight: '1em' }}
+                >
+                  Sundays @ 11am Online
+                </h3>
+                {this.state.isLive &&
+                <Button
+                    href="http://live.mysecondchancechurch.com"
+                    target="_blank"
+                    rel="noopener"
+                >
+                  Watch Live
+                </Button>
+                }
 
-                  <div>
-                    {/*<H5>*/}
-                      {/*<a*/}
-                          {/*href="//facebook.com/mysecondchancechurch"*/}
-                          {/*target="_blank"*/}
-                          {/*rel="noopener"*/}
-                      {/*>*/}
-                        {/*Follow Us On Facebook <FontAwesomeIcon icon={["fas", "chevron-right"]} style={{ paddingLeft: 5 }} />*/}
-                      {/*</a>*/}
-                    {/*</H5>*/}
+                <div>
+                  {/*<H5>*/}
+                    {/*<a*/}
+                        {/*href="//facebook.com/mysecondchancechurch"*/}
+                        {/*target="_blank"*/}
+                        {/*rel="noopener"*/}
+                    {/*>*/}
+                      {/*Follow Us On Facebook <FontAwesomeIcon icon={["fas", "chevron-right"]} style={{ paddingLeft: 5 }} />*/}
+                    {/*</a>*/}
+                  {/*</H5>*/}
 
-                    <Card>
-                      <div className={"image"}/>
-                      <div className="content">
-                        <h2>Easter @ Second Chance</h2>
-                        <h4>Service Times</h4>
-                        <ul>
-                          <li>March 31st @ 6pm (EST)</li>
-                          <li>April 1st @ 9:15am (EST)</li>
-                          <li>April 1st @ 11:15am (EST)</li>
-                        </ul>
-                        <Button>
-                          Get Tickets
-                        </Button>
-                      </div>
-                    </Card>
-                  </div>
+                  <Card>
+                    <div className={"image"}/>
+                    <div className="content">
+                      <h2>Easter @ Second Chance</h2>
+                      <h4>Service Times</h4>
+                      <ul>
+                        <li>March 31st @ 6pm (EST)</li>
+                        <li>April 1st @ 9:15am (EST)</li>
+                        <li>April 1st @ 11:15am (EST)</li>
+                      </ul>
+                      <Button
+                        href="http://rock.mysecondchancechurch.com/easter"
+                        target="_blank"
+                      >
+                        Get Tickets
+                      </Button>
+                      <TextButton
+                        href="http://rock.mysecondchancechurch.com/easter/volunteer"
+                        target="_blank"
+                      >
+                        Volunteer <FontAwesomeIcon icon={["fas", "chevron-right"]} size="xs" />
+                      </TextButton>
+                    </div>
+                  </Card>
+                </div>
 
                 </div>
               </Container>
           </div>
+          <Connect>
+            <ul>
+              <li>
+                <h4>
+                  Connect With Us:
+                </h4>
+              </li>
+              <li>
+                <a
+                  href="https://facebook.com/mysecondchancechurch"
+                  target="_blank"
+                >
+                  <FontAwesomeIcon icon={["fab", "facebook"]} size="lg" />
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://www.youtube.com/channel/UCCpz1dcwossIIP8hW61DOqw"
+                  target="_blank"
+                >
+                  <FontAwesomeIcon icon={["fab", "youtube"]} size="lg" />
+                </a>
+              </li>
+              <li>
+                <a
+                    href="https://itunes.apple.com/us/podcast/second-chance-church-podcast/id1339776817?mt=2"
+                    target="_blank"
+                >
+                  <FontAwesomeIcon icon={["fas", "podcast"]} size="lg" />
+                </a>
+              </li>
+            </ul>
+          </Connect>
         </FullScreen>
     );
   }
