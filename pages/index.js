@@ -10,6 +10,7 @@ import FontAwesomeIcon from '@fortawesome/react-fontawesome'
 import solid from '@fortawesome/fontawesome-free-solid'
 
 import styled from 'react-emotion'
+import { colors } from "../styles/vars";
 import { Container, Button } from "../styles/base/components";
 
 import moment from 'moment-timezone'
@@ -58,6 +59,51 @@ const H5 = styled.h5`
       width: 75px;
       margin: 20px auto 10px;
       background-color: rgba(255,255,255,0.75);
+    }
+  }
+`
+
+const Card = styled('div')`
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  color: ${colors.darkPrimary};
+  max-width: 60%;
+  margin: 60px auto 0;
+  
+  @media (max-width: 768px) {
+    max-width: 80%;
+    grid-template-columns: 1fr;
+    
+    .image {
+      grid-row: 1;
+      padding-top: 50%;
+    }
+    
+    .content {
+      grid-row: 2;
+    }
+  }
+
+  .image {
+    background-image: url("/static/bleckley_station.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;    
+  }
+  
+  .content {
+    text-align: left;
+    padding: 40px;
+    background-color: ${colors.lightPrimary};
+     
+    ul {
+      padding: 0;
+      font-weight: 400;
+      list-style-position: inside;
+      
+      li:not(:last-of-type) {
+        margin-bottom: 10px;
+      }
     }
   }
 `
@@ -138,15 +184,31 @@ export default class Index extends Component {
                   }
 
                   <div>
-                    <H5>
-                      <a
-                          href="//facebook.com/mysecondchancechurch"
-                          target="_blank"
-                          rel="noopener"
-                      >
-                        Follow Us On Facebook <FontAwesomeIcon icon={["fas", "chevron-right"]} style={{ paddingLeft: 5 }} />
-                      </a>
-                    </H5>
+                    {/*<H5>*/}
+                      {/*<a*/}
+                          {/*href="//facebook.com/mysecondchancechurch"*/}
+                          {/*target="_blank"*/}
+                          {/*rel="noopener"*/}
+                      {/*>*/}
+                        {/*Follow Us On Facebook <FontAwesomeIcon icon={["fas", "chevron-right"]} style={{ paddingLeft: 5 }} />*/}
+                      {/*</a>*/}
+                    {/*</H5>*/}
+
+                    <Card>
+                      <div className={"image"}/>
+                      <div className="content">
+                        <h2>Easter @ Second Chance</h2>
+                        <h4>Service Times</h4>
+                        <ul>
+                          <li>March 31st @ 6pm (EST)</li>
+                          <li>April 1st @ 9:15am (EST)</li>
+                          <li>April 1st @ 11:15am (EST)</li>
+                        </ul>
+                        <Button>
+                          Get Tickets
+                        </Button>
+                      </div>
+                    </Card>
                   </div>
 
                 </div>
