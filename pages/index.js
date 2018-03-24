@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import Router from 'next/router'
 
 // Analytics
 import ReactGA from 'react-ga';
@@ -196,7 +195,7 @@ export default class Index extends Component {
   componentWillMount = () => {
     const estTime = moment(moment.tz("America/New_York").format('HH:mm'))._i;
 
-    if (moment().day() === 0 && (estTime >= '10:50' && estTime <= '11:55')) {
+    if (moment().day() === 0 && ((estTime >= '10:50' && estTime <= '11:55') || (estTime >= '14:50' && estTime <= '15:35') || (estTime >= '16:50' && estTime <= '17:35') || (estTime >= '18:50' && estTime <= '19:35'))) {
       this.setState({
         isLive: true,
       })
@@ -273,22 +272,29 @@ export default class Index extends Component {
                       <h2>Easter @ Second Chance</h2>
                       <h4>Service Times</h4>
                       <ul>
+                        <li>March 31st @ 4pm (EST)</li>
                         <li>March 31st @ 6pm (EST)</li>
                         <li>April 1st @ 9:15am (EST)</li>
                         <li>April 1st @ 11:15am (EST)</li>
                       </ul>
+                      <h4>Location</h4>
+                      <p>
+                        Bleckley Station<br/>
+                        310 S Main St<br/>
+                        Anderson, SC 29624
+                      </p>
                       <Button
-                        href="http://rock.mysecondchancechurch.com/easter"
+                        href="http://easter.mysecondchancechurch.com"
                         target="_blank"
                       >
                         Get Tickets
                       </Button>
-                      <TextButton
-                        href="http://rock.mysecondchancechurch.com/easter/volunteer"
-                        target="_blank"
-                      >
-                        Volunteer <FontAwesomeIcon icon={["fas", "chevron-right"]} size="xs" />
-                      </TextButton>
+                      {/*<TextButton*/}
+                        {/*href="http://rock.mysecondchancechurch.com/easter/volunteer"*/}
+                        {/*target="_blank"*/}
+                      {/*>*/}
+                        {/*Volunteer <FontAwesomeIcon icon={["fas", "chevron-right"]} size="xs" />*/}
+                      {/*</TextButton>*/}
                     </div>
                   </Card>
                 </div>

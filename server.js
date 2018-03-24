@@ -8,6 +8,7 @@ const handle = app.getRequestHandler()
 
 const redirects = [
   { from: '/give', to: 'https://pushpay.com/pay/secondchancechurch' },
+  { from: 'live.mysecondchancechurch.com', to: 'https://www.facebook.com/nobleperry/videos/1639740239447794'}
 ]
 
 app.prepare().then(() => {
