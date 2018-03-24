@@ -6,11 +6,21 @@ import {
   Marker,
 } from "react-google-maps";
 
+import { SEO } from "../../Layout/seo";
 import styled, { css } from 'react-emotion'
 // import { colors } from "../styles/vars";
+import { Layout } from "../../Layout";
 import { Container } from "../../styles/base/components";
 import { Navigation } from "../../components/sections/navigation";
 import { variables, colors } from "../../styles/vars";
+
+// Analytics
+import ReactGA from 'react-ga';
+
+// FontAwesome
+import fontawesome from '@fortawesome/fontawesome'
+import FontAwesomeIcon from '@fortawesome/react-fontawesome'
+import solid from '@fortawesome/fontawesome-free-solid'
 
 const Hero = styled('div')`
   background: url('/static/bleckley_station_outside.jpg') no-repeat center;
@@ -31,7 +41,7 @@ const Hero = styled('div')`
     background-image: -moz-linear-gradient( -62deg, rgb(177,30,35) 0%, rgb(105,16,19) 100%);
     background-image: -webkit-linear-gradient( -62deg, rgb(177,30,35) 0%, rgb(105,16,19) 100%);
     background-image: -ms-linear-gradient( -62deg, rgb(177,30,35) 0%, rgb(105,16,19) 100%);
-    opacity: 0.902;
+    opacity: 0.93;
   }
   
   .padding {
@@ -43,7 +53,7 @@ const Hero = styled('div')`
     position: relative;
     z-index: 10;
     margin: auto;
-    max-width: 600px;
+    max-width: 540px;
     width: 100%;
     height: auto;
   }
@@ -51,10 +61,36 @@ const Hero = styled('div')`
 
 const SideBySide = styled('section')`
 
+  a {
+    color: ${colors.primary};
+    text-decoration: none;
+    font-weight: 800;
+    margin-top: 10px;
+    display: block;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    
+    svg {
+      transition: all 0.15s ease-in-out;
+      margin-left: 5px;
+      top: -1px;
+      position: relative;
+    }
+    
+    &:hover svg {
+      margin-left: 10px;
+      transition: all 0.15s ease-in-out;
+    }
+  }
+
   &.gradient {
     background-image: -moz-linear-gradient( -62deg, rgb(177,30,35) 0%, rgb(105,16,19) 100%);
     background-image: -webkit-linear-gradient( -62deg, rgb(177,30,35) 0%, rgb(105,16,19) 100%);
     background-image: -ms-linear-gradient( -62deg, rgb(177,30,35) 0%, rgb(105,16,19) 100%);
+    
+    a {
+      color: ${colors.lightPrimary};
+    }
   }
 
   .container {
@@ -199,9 +235,7 @@ const EasterMap = withScriptjs(withGoogleMap(props =>
         defaultZoom={17.5}
         defaultCenter={{ lat: 34.5018256, lng: -82.651119 }}
     >
-      <Marker
-          position={{ lat: 34.5018256, lng: -82.651119 }}
-      />
+      <Marker position={{ lat: 34.501743, lng: -82.650806 }} onClick={() => window.open('https://www.google.com/maps/dir//34.501743,-82.650806')} />
     </GoogleMap>
 ));
 
@@ -210,10 +244,10 @@ const ParkingMap = withScriptjs(withGoogleMap(props =>
         defaultZoom={17.5}
         defaultCenter={{ lat: 34.502689, lng: -82.651055 }}
     >
-      <Marker position={{ lat: 34.501743, lng: -82.650806 }} /> {/* Bleckley */}
-      <Marker position={{ lat: 34.502335, lng: -82.651216 }} /> {/* Palmetto Building */}
-      <Marker position={{ lat: 34.502978, lng: -82.651326}} /> {/* Courthouse */}
-      <Marker position={{ lat: 34.503458, lng: -82.651390 }} /> {/* Parking Garage */}
+      <Marker position={{ lat: 34.501743, lng: -82.650806 }} onClick={() => window.open('https://www.google.com/maps/dir//34.501743,-82.650806')} /> {/* Bleckley */}
+      <Marker position={{ lat: 34.502335, lng: -82.651216 }} onClick={() => window.open('https://www.google.com/maps/dir//34.502335,-82.651216')} /> {/* Palmetto Building */}
+      <Marker position={{ lat: 34.502978, lng: -82.651326 }} onClick={() => window.open('https://www.google.com/maps/dir//34.502978,-82.651326')} /> {/* Courthouse */}
+      <Marker position={{ lat: 34.503458, lng: -82.651390 }} onClick={() => window.open('https://www.google.com/maps/dir//34.503458,-82.651390')} /> {/* Parking Garage */}
     </GoogleMap>
 ));
 
@@ -221,21 +255,23 @@ class Easter extends Component {
 
   render() {
     return(
+      <Layout>
         <EasterStyles>
-          <Navigation />
+          <SEO
+            title="Easter at Second Chance"
+            description="Join us at Bleckley Station, or online for our first Easter Services on March 31st and April 1st"
+            image="/static/EasterSecondChance.jpg"
+          />
           {/* Easter @ Second Chance Church */}
           <Hero>
             <Container>
               <div className={"padding"}>
-                <img src="/static/easter.svg" alt=""/>
+                <img src="/static/easter_v2.svg" alt=""/>
               </div>
             </Container>
           </Hero>
 
-          {/* Map / Directions / Hotels */}
-
-
-          {/* Venue Location */}
+          {/* Service Times */}
           <ServiceTimes>
             <div className="content">
               <h2>Service Times</h2>
@@ -246,6 +282,8 @@ class Easter extends Component {
               </ul>
             </div>
           </ServiceTimes>
+
+          {/* Venue Location */}
           <SideBySide>
             <div className="container grid">
             <div style={{ position: 'relative' }}>
@@ -258,10 +296,13 @@ class Easter extends Component {
             </div>
            <div className={"content"}>
             <h2>Location</h2>
+             <h3>Bleckley Station</h3>
             <p>
-              Bleckley Station <br/>
-              Entrance is off of S Murray Ave at E Market Street <br/>
-              Get Directions
+              Entrance is off of W Church Street<br/>
+              <a href="https://www.google.com/maps/dir//34.501743,-82.650806" target="_blank">
+                Get Directions
+                <FontAwesomeIcon icon={["fas", "arrow-right"]} size="xs" />
+              </a>
             </p>
            </div>
             </div>
@@ -282,59 +323,80 @@ class Easter extends Component {
                 <h2>Parking</h2>
                 <ul>
                   <li>
-                    <h4>Bleckley Station</h4>
+                    <h3>Bleckley Station</h3>
                     <p>
-                      Please use S Murray Ave. for access.
+                      Entrance is off of W Church St.<br/>
+                      <a href="https://www.google.com/maps/dir//34.501743,-82.650806" target="_blank">
+                        Get Directions
+                        <FontAwesomeIcon icon={["fas", "arrow-right"]} size="xs" />
+                      </a>
                     </p>
                   </li>
                   <li>
-                    <h4>The Palmetto Building</h4>
+                    <h3>The Palmetto Building</h3>
                     <p>
-                      Please use S Murray Ave. for access.
+                      Entrance is off of S Murray Ave.<br/>
+                      <a href="https://www.google.com/maps/dir//34.502335,-82.651216" target="_blank">
+                        Get Directions
+                        <FontAwesomeIcon icon={["fas", "arrow-right"]} size="xs" />
+                      </a>
                     </p>
                   </li>
                   <li>
-                    <h4>Anderson County Courthouse</h4>
+                    <h3>Anderson County Courthouse</h3>
                     <p>
-                      Please use S Murray Ave. for access.
+                      Entrance is off of S Murray Ave.<br/>
+                      <a href="https://www.google.com/maps/dir//34.502978,-82.651326" target="_blank">
+                        Get Directions
+                        <FontAwesomeIcon icon={["fas", "arrow-right"]} size="xs" />
+                      </a>
                     </p>
                   </li>
                   <li>
-                    <h4>West Whiner St. Parking Garage</h4>
+                    <h3>West Whitner St. Parking Garage</h3>
                     <p>
-                      Please use N Main St. for access.
+                      Entrance is off of W Whitner St.<br/>
+                      <a href="https://www.google.com/maps/dir//34.503458,-82.651390" target="_blank">
+                        Get Directions
+                        <FontAwesomeIcon icon={["fas", "arrow-right"]} size="xs" />
+                      </a>
                     </p>
                   </li>
                 </ul>
               </div>
             </div>
           </SideBySide>
-          {/* https://www.google.com/maps/place/West+Whitner+St.+Parking+Garage/@34.50274,-82.6509486,535m/data=!3m1!1e3!4m5!3m4!1s0x88586e7ed36fa00d:0xf9c1f5e3c9d592d1!8m2!3d34.5034632!4d-82.6513427 */}
 
           {/* FAQ */}
           <FAQ>
             <div className="content">
-            <div className="heading">
-              <h2>FAQ</h2>
-            </div>
-            <div>
-              <h3>I Never Received My Tickets?</h3>
-              <p>Please check your spam folder, if you haven't yet received your tickets please send us an email at hello@mysecondchancechurch.com and we'll be in touch.</p>
-            </div>
-            <div>
-              <h3>Do I Need Tickets?</h3>
-              <p>Currently we are on a waitlist, however we will have two lines for each service. One will be for people who have tickets and the other will be for those without. We will do our best to seat as many people as possible for each service.</p>
-            </div>
-            <div>
-              <h3>What About Kids?</h3>
-              <p>Your children are more than welcome to join us in service during our Easter service.</p>
-            </div>
-            <div>
-              <h3></h3>
-            </div>
+              <div className="heading">
+                <h2>FAQ</h2>
+              </div>
+              <div>
+                <h3>I Never Received My Tickets?</h3>
+                <p>Please check your spam folder, if you haven't yet received your tickets please send us an email at hello@mysecondchancechurch.com and we'll be in touch.</p>
+              </div>
+              <div>
+                <h3>Is My Email The Tickets?</h3>
+                <p>Yes, please bring either a printed copy of the email or your phone to show at the door.</p>
+              </div>
+              <div>
+                <h3>Do I Need Tickets?</h3>
+                <p>Currently we are on a waitlist, however we will have two lines for each service. One will be for people who have tickets and the other will be for those without. We will do our best to seat as many people as possible for each service.</p>
+              </div>
+              <div>
+                <h3>What About Kids?</h3>
+                <p>Your children are more than welcome to join us in service during our Easter service.</p>
+              </div>
+              <div>
+                <h3>Will We Be Meeting At The Bleckley Permanently?</h3>
+                <p>After Easter we will continue to meet weekly online. We hope to get a physical campus very soon.</p>
+              </div>
             </div>
           </FAQ>
         </EasterStyles>
+      </Layout>
     )
   }
 }

@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import Link from 'next/link'
+import { withRouter } from 'next/router'
 
 // FontAwesome
 import fontawesome from '@fortawesome/fontawesome'
@@ -154,7 +156,7 @@ const Nav = styled('nav')`
     }
 `
 
-export class Navigation extends Component {
+class Navigation extends Component {
 
   constructor() {
     super()
@@ -172,6 +174,7 @@ export class Navigation extends Component {
   render() {
 
     const { props } = this
+    const { router } = props
 
     return (
         <Header
@@ -180,9 +183,11 @@ export class Navigation extends Component {
         >
           <Container className="header_inner" style={{padding: 20}}>
             <Logo>
-              <a itemProp="url" href="/" style={{display: 'block'}}>
-                <img src="/static/logo/SCC-logo_white.png" alt="Logo"/>
-              </a>
+              <Link href="/">
+                <a itemProp="url" style={{display: 'block'}}>
+                  <img src="/static/logo/SCC-logo_white.png" alt="Logo"/>
+                </a>
+              </Link>
             </Logo>
 
             <MobileTrigger className="mobile_menu_button" style={{marginRight: 0}}>
@@ -203,23 +208,27 @@ export class Navigation extends Component {
             <Nav className="main_menu drop_down right" navOpen={this.state.navOpen}>
               <ul>
                 <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-104 current_page_item active narrow">
-                  <a href="/">
-                    <i className="menu_icon blank fa"/>
-                    <span>
-                      Home
-                      <span className="underline_dash"/>
-                    </span>
-                  </a>
+                  <Link href="/">
+                    <a className={router.asPath === '/' ? 'current' : ''}>
+                      <i className="menu_icon blank fa"/>
+                      <span>
+                        Home
+                        <span className="underline_dash"/>
+                      </span>
+                    </a>
+                  </Link>
                 </li>
 
                 <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-104 current_page_item active narrow">
-                  <a href="/easter">
-                    <i className="menu_icon blank fa"/>
-                    <span>
-                      Easter
-                      <span className="underline_dash"/>
-                    </span>
-                  </a>
+                  <Link href="/easter">
+                    <a className={router.asPath === '/easter' ? 'current' : ''}>
+                      <i className="menu_icon blank fa"/>
+                      <span>
+                        Easter
+                        <span className="underline_dash"/>
+                      </span>
+                    </a>
+                  </Link>
                 </li>
 
                 <li className="menu-item menu-item-type-custom menu-item-object-custom  narrow">
@@ -250,5 +259,11 @@ export class Navigation extends Component {
           </Container>
         </Header>
     )
+
+
   }
 }
+
+const withRouterData = withRouter(Navigation)
+
+export { withRouterData as Navigation }

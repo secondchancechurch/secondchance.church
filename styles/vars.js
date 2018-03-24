@@ -1,8 +1,5 @@
 export const colors = {
   primary: '#B11E23',
-  critical: '#FCBA45',
-  decom: '#A9A78E',
-  semi: '#97b4b9',
   darkPrimary: '#262626',
   darkSecondary: '#333333',
   darkTertiary: '#727272',
