@@ -1,29 +1,22 @@
-machine:
-  environment:
-    PATH: "${PATH}:${HOME}/${CIRCLE_PROJECT_REPONAME}/node_modules/.bin"
-  node:
-    version: 7.10.0
+version: 2
+jobs:
+    build:
+      environment:
+        PATH: "${PATH}:${HOME}/${CIRCLE_PROJECT_REPONAME}/node_modules/.bin"
+      node:
+        version: 8.4.0
 
-dependencies:
-  override:
-    - yarn
-  cache_directories:
-    - ~/.cache/yarn
-  pre:
-    - yarn global add now
+    dependencies:
+      override:
+        - yarn
+      cache_directories:
+        - ~/.cache/yarn
+      pre:
+        - yarn global add now
 
-test:
-  override:
-    - yarn test
-
-deployment:
-  development:
-    branch: feature-nextjs
-    commands:
-      - now -t ${NOW_TOKEN}
-      - now -t ${NOW_TOKEN} alias staging-mysecondchancechurch
-  production:
-    branch: production
-    commands:
-      - now -t ${NOW_TOKEN}
-      - now -t ${NOW_TOKEN} alias foo
+    deployment:
+      development:
+        branch: feature-nextjs
+        commands:
+          - now -t ${NOW_TOKEN}
+          - now -t ${NOW_TOKEN} alias staging-mysecondchancechurch
