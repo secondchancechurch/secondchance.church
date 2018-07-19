@@ -180,6 +180,7 @@ class Navigation extends Component {
         <Header
           className="scroll_header_top_area light regular transparent page_header"
           navOpen={this.state.navOpen}
+          offset={props.offset}
         >
           <Container className="header_inner" style={{padding: 20}}>
             <Logo>
@@ -220,25 +221,25 @@ class Navigation extends Component {
                 </li>
 
                 <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-104 current_page_item active narrow">
-                  <Link href="/easter">
-                    <a className={router.asPath === '/easter' ? 'current' : ''}>
+                  <a href="https://www.youtube.com/channel/UCCpz1dcwossIIP8hW61DOqw" className={router.asPath === '/sermons' ? 'current' : ''}>
+                    <i className="menu_icon blank fa"/>
+                    <span>
+                      Sermons
+                      <span className="underline_dash"/>
+                    </span>
+                  </a>
+                </li>
+
+                <li className="menu-item menu-item-type-custom menu-item-object-custom  narrow">
+                  <Link href="/give">
+                    <a className={router.asPath === '/give' ? 'current' : ''}>
                       <i className="menu_icon blank fa"/>
                       <span>
-                        Easter
+                        Give
                         <span className="underline_dash"/>
                       </span>
                     </a>
                   </Link>
-                </li>
-
-                <li className="menu-item menu-item-type-custom menu-item-object-custom  narrow">
-                  <a target="_blank" rel="noopener" href="https://pushpay.com/pay/secondchancechurch">
-                    <i className="menu_icon blank fa"/>
-                    <span>
-                      Give
-                      <span className="underline_dash"/>
-                    </span>
-                  </a>
                 </li>
                 {props.isLive &&
                 <li>

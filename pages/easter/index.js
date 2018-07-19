@@ -14,9 +14,6 @@ import { Container } from "../../styles/base/components";
 import { Navigation } from "../../components/sections/navigation";
 import { variables, colors } from "../../styles/vars";
 
-// Analytics
-import ReactGA from 'react-ga';
-
 // FontAwesome
 import fontawesome from '@fortawesome/fontawesome'
 import FontAwesomeIcon from '@fortawesome/react-fontawesome'
@@ -130,7 +127,7 @@ const SideBySide = styled('section')`
     
     @media (min-width: 426px) and (max-width: 768px) {
       grid-template-columns: 1fr;
-      padding: 30px;
+      padding: 60px 30px;
       
       .content {
         padding: 0;
@@ -139,7 +136,7 @@ const SideBySide = styled('section')`
     
     @media (max-width: 425px) {
       grid-template-columns: 1fr;
-      padding: 20px;
+      padding: 60px 20px;
       
       .content {
         padding: 0;
@@ -150,34 +147,49 @@ const SideBySide = styled('section')`
 
 const FAQ = styled('section')`
 
+  a {
+    color: ${colors.primary};
+    text-decoration: none;
+    
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  h2 {
+    margin: 0;
+  }
+
   .content {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 60px;
-  max-width: 1680px;
-  margin: auto;
-  padding: 60px 0;
-  
-  .heading {
-    grid-column: span 3;
-    text-align: center;
-  }
-  
-  @media (min-width: 426px) and (max-width: 768px) {
-    grid-template-columns: repeat(2, 1fr);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 60px;
+    max-width: 1680px;
+    margin: auto;
+    padding: 60px;
     
     .heading {
-      grid-column: span 2;
+      grid-column: span 3;
+      text-align: center;
     }
-  }
-  
-  @media (max-width: 425px) {
-    grid-template-columns: 1fr;
     
-    .heading {
-      grid-column: span 1;
+    @media (min-width: 426px) and (max-width: 768px) {
+      grid-template-columns: repeat(2, 1fr);
+      padding: 60px 30px;
+      
+      .heading {
+        grid-column: span 2;
+      }
     }
-  }
+    
+    @media (max-width: 425px) {
+      grid-template-columns: 1fr;
+      padding: 60px 20px;
+      
+      .heading {
+        grid-column: span 1;
+      }
+    }
   }
 `
 
@@ -217,12 +229,17 @@ const ServiceTimes = styled('section')`
     display: flex;
     flex-wrap: wrap;
     margin-bottom: 0;
+    
+    @media (max-width: 768px) {
+      display: block;
+    }
   }
   
   li {
     display: inline-block;
     flex-grow: 1;
     flex-basis: 0;
+    padding: 0 30px;
   }
   
   li:not(:last-of-type) {
@@ -250,6 +267,8 @@ const ParkingMap = withScriptjs(withGoogleMap(props =>
       <Marker position={{ lat: 34.503458, lng: -82.651390 }} onClick={() => window.open('https://www.google.com/maps/dir//34.503458,-82.651390')} /> {/* Parking Garage */}
     </GoogleMap>
 ));
+
+const GoogleUrl = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyBCMa1eH4XSZ-G-dvyl41yCS6j_GKqP1BE&v=3.exp&libraries=geometry,drawing,places'
 
 class Easter extends Component {
 
@@ -288,7 +307,7 @@ class Easter extends Component {
             <div className="container grid">
             <div style={{ position: 'relative' }}>
               <EasterMap
-                  googleMapURL="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places"
+                  googleMapURL={GoogleUrl}
                   loadingElement={<div style={{ height: `100%` }} />}
                   containerElement={<div style={{ paddingTop: '60%' }} />}
                   mapElement={<div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0 }} />}
@@ -299,6 +318,8 @@ class Easter extends Component {
              <h3>Bleckley Station</h3>
             <p>
               Entrance is off of W Church Street<br/>
+              South Murray Ave & West Market Street<br/>
+              Anderson, SC 29624<br/>
               <a href="https://www.google.com/maps/dir//34.501743,-82.650806" target="_blank">
                 Get Directions
                 <FontAwesomeIcon icon={["fas", "arrow-right"]} size="xs" />
@@ -313,7 +334,7 @@ class Easter extends Component {
             <div className="container reversed">
               <div style={{ position: 'relative' }}>
                 <ParkingMap
-                    googleMapURL="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places"
+                    googleMapURL={GoogleUrl}
                     loadingElement={<div style={{ height: `100%` }} />}
                     containerElement={<div style={{ paddingTop: '60%' }} />}
                     mapElement={<div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0 }} />}
@@ -326,6 +347,8 @@ class Easter extends Component {
                     <h3>Bleckley Station</h3>
                     <p>
                       Entrance is off of W Church St.<br/>
+                      South Murray Ave & West Market Street<br/>
+                      Anderson, SC 29624<br/>
                       <a href="https://www.google.com/maps/dir//34.501743,-82.650806" target="_blank">
                         Get Directions
                         <FontAwesomeIcon icon={["fas", "arrow-right"]} size="xs" />
@@ -336,7 +359,9 @@ class Easter extends Component {
                     <h3>The Palmetto Building</h3>
                     <p>
                       Entrance is off of S Murray Ave.<br/>
-                      <a href="https://www.google.com/maps/dir//34.502335,-82.651216" target="_blank">
+                      201 South Murray Ave.<br/>
+                      Anderson, SC 29624<br/>
+                      <a href="https://www.google.com/maps/dir//34.502335,-82.65121" target="_blank">
                         Get Directions
                         <FontAwesomeIcon icon={["fas", "arrow-right"]} size="xs" />
                       </a>
@@ -346,6 +371,8 @@ class Easter extends Component {
                     <h3>Anderson County Courthouse</h3>
                     <p>
                       Entrance is off of S Murray Ave.<br/>
+                      South Murray Ave & West Benson Street<br/>
+                      Anderson, SC 29624<br/>
                       <a href="https://www.google.com/maps/dir//34.502978,-82.651326" target="_blank">
                         Get Directions
                         <FontAwesomeIcon icon={["fas", "arrow-right"]} size="xs" />
@@ -356,6 +383,8 @@ class Easter extends Component {
                     <h3>West Whitner St. Parking Garage</h3>
                     <p>
                       Entrance is off of W Whitner St.<br/>
+                      130 West Whitner Street<br/>
+                      Anderson, SC 29624<br/>
                       <a href="https://www.google.com/maps/dir//34.503458,-82.651390" target="_blank">
                         Get Directions
                         <FontAwesomeIcon icon={["fas", "arrow-right"]} size="xs" />
@@ -375,7 +404,7 @@ class Easter extends Component {
               </div>
               <div>
                 <h3>I Never Received My Tickets?</h3>
-                <p>Please check your spam folder, if you haven't yet received your tickets please send us an email at hello@mysecondchancechurch.com and we'll be in touch.</p>
+                <p>Please check your spam folder, if you haven't yet received your tickets please send us an email at <a href="mailto:hello@mysecondchancechurch.com">hello@mysecondchancechurch.com</a> and we'll be in touch.</p>
               </div>
               <div>
                 <h3>Is My Email The Tickets?</h3>
@@ -387,7 +416,7 @@ class Easter extends Component {
               </div>
               <div>
                 <h3>What About Kids?</h3>
-                <p>Your children are more than welcome to join us in service during our Easter service.</p>
+                <p>Your children are more than welcome to join us in service during our Easter service, however they will need a ticket to attend.</p>
               </div>
               <div>
                 <h3>Will We Be Meeting At The Bleckley Permanently?</h3>

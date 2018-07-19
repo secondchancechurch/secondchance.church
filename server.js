@@ -7,8 +7,9 @@ const app = next({ dev })
 const handle = app.getRequestHandler()
 
 const redirects = [
-  { from: '/give', to: 'https://pushpay.com/pay/secondchancechurch' },
-  { from: 'live.mysecondchancechurch.com', to: 'https://www.facebook.com/nobleperry/videos/1639740239447794'}
+  { from: '/give/now', to: 'https://pushpay.com/pay/secondchancechurch' },
+  { from: '/sermons', to: 'https://www.youtube.com/channel/UCCpz1dcwossIIP8hW61DOqw' },
+  { from: '/easter', to: '/' }
 ]
 
 app.prepare().then(() => {

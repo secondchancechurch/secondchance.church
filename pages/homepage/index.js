@@ -287,20 +287,20 @@ export class PageContent extends Component {
                   </Button>
                   }
 
-                  <div>
+                  {/*<div>*/}
 
-                    <Card horizontal>
-                      <div className={"image"}/>
-                      <div className="content">
-                        <h2>Easter @ Second Chance</h2>
-                        <Link href="/easter">
-                          <Button>
-                            Learn More
-                          </Button>
-                        </Link>
-                      </div>
-                    </Card>
-                  </div>
+                    {/*<Card horizontal>*/}
+                      {/*<div className={"image"}/>*/}
+                      {/*<div className="content">*/}
+                        {/*<h2>Easter @ Second Chance</h2>*/}
+                        {/*<Link href="/easter">*/}
+                          {/*<Button>*/}
+                            {/*Learn More*/}
+                          {/*</Button>*/}
+                        {/*</Link>*/}
+                      {/*</div>*/}
+                    {/*</Card>*/}
+                  {/*</div>*/}
 
                 </div>
               </Container>

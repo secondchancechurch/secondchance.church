@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import NoSSR from 'react-no-ssr'
 
 // Analytics
 import ReactGA from 'react-ga';
@@ -39,17 +40,12 @@ export default class Index extends Component {
   render() {
     return (
       <EmbedContainer className="embed-container">
-        <iframe
-          frameborder="0"
-          src="https://yourstreamlive.com/embed/iframe/live/5761?&responsive=yes&aspect_ratio=16:9"
-          marginheight="0"
-          marginwidth="0"
-          scrolling="auto"
-          allowFullScreen="yes"
-          allowtransparency="yes"
-          name="live"
-          id="live"
-        />
+        <NoSSR>
+          <div>
+            <div id="la1-video-player" data-embed-id="dfe7098b-68f1-43ec-9e61-58927d9194ad" />
+            <div dangerouslySetInnerHTML={{ __html: `<script type="application/javascript" data-main="//control.livingasone.com/webplayer/loader.js" src="//control.livingasone.com/webplayer/require.js"></script>`}} />
+          </div>
+        </NoSSR>
       </EmbedContainer>
     )
   }
