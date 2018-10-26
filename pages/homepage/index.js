@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Link from 'next/link'
+import { StoreConsumer } from "../../components/store";
 
 // FontAwesome
 import fontawesome from '@fortawesome/fontawesome'
@@ -234,6 +234,8 @@ export class PageContent extends Component {
 
   render() {
     return (
+      <StoreConsumer>
+        {({ isLive, nextLive }) => (
           <FullScreen
               backgroundImage
               className="vc_row wpb_row section vc_row-fluid"
@@ -275,16 +277,16 @@ export class PageContent extends Component {
                   <h3
                       style={{ lineHeight: '1em' }}
                   >
-                    Sundays @ 11am Online
+                    {nextLive ? `Join us on ${nextLive}` : 'Sundays @ 11am'} Online
                   </h3>
-                  {this.props.isLive &&
-                  <Button
-                      href="http://live.mysecondchancechurch.com"
-                      target="_blank"
-                      rel="noopener"
-                  >
-                    Watch Live
-                  </Button>
+                  {isLive &&
+                    <Button
+                        href="http://live.mysecondchancechurch.com"
+                        target="_blank"
+                        rel="noopener"
+                    >
+                      Watch Live
+                    </Button>
                   }
 
                   {/*<div>*/}
@@ -322,7 +324,7 @@ export class PageContent extends Component {
                 </li>
                 <li>
                   <a
-                      href="https://www.youtube.com/channel/UCCpz1dcwossIIP8hW61DOqw"
+                      href="https://www.youtube.com/c/SecondChanceChurch"
                       target="_blank"
                   >
                     <FontAwesomeIcon icon={["fab", "youtube"]} size="lg" />
@@ -339,6 +341,8 @@ export class PageContent extends Component {
               </ul>
             </Connect>
           </FullScreen>
+        )}
+      </StoreConsumer>
     );
   }
 }

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Link from 'next/link'
 import { withRouter } from 'next/router'
+import { StoreConsumer } from "../../store";
 
 // FontAwesome
 import fontawesome from '@fortawesome/fontawesome'
@@ -177,88 +178,102 @@ class Navigation extends Component {
     const { router } = props
 
     return (
-        <Header
-          className="scroll_header_top_area light regular transparent page_header"
-          navOpen={this.state.navOpen}
-          offset={props.offset}
-        >
-          <Container className="header_inner" style={{padding: 20}}>
-            <Logo>
-              <Link href="/">
-                <a itemProp="url" style={{display: 'block'}}>
-                  <img src="/static/logo/SCC-logo_white.png" alt="Logo"/>
-                </a>
-              </Link>
-            </Logo>
-
-            <MobileTrigger className="mobile_menu_button" style={{marginRight: 0}}>
-              <span onClick={this.mobileNav}>
-                {this.state.navOpen ?
-                    <FontAwesomeIcon
-                        icon={["fas", "times"]}
-                        style={{fontSize: '1.5em'}}
-                    /> :
-                    <FontAwesomeIcon
-                        icon={["fas", "bars"]}
-                        style={{fontSize: '1.5em'}}
-                    />
-                }
-              </span>
-            </MobileTrigger>
-
-            <Nav className="main_menu drop_down right" navOpen={this.state.navOpen}>
-              <ul>
-                <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-104 current_page_item active narrow">
+        <StoreConsumer>
+          {({ isLive }) => (
+            <Header
+              className="scroll_header_top_area light regular transparent page_header"
+              navOpen={this.state.navOpen}
+              offset={props.offset}
+            >
+              <Container className="header_inner" style={{padding: 20}}>
+                <Logo>
                   <Link href="/">
-                    <a className={router.asPath === '/' ? 'current' : ''}>
-                      <i className="menu_icon blank fa"/>
-                      <span>
-                        Home
-                        <span className="underline_dash"/>
-                      </span>
+                    <a itemProp="url" style={{display: 'block'}}>
+                      <img src="/static/logo/SCC-logo_white.png" alt="Logo"/>
                     </a>
                   </Link>
-                </li>
+                </Logo>
 
-                <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-104 current_page_item active narrow">
-                  <a href="https://www.youtube.com/channel/UCCpz1dcwossIIP8hW61DOqw" className={router.asPath === '/sermons' ? 'current' : ''}>
-                    <i className="menu_icon blank fa"/>
-                    <span>
-                      Sermons
-                      <span className="underline_dash"/>
-                    </span>
-                  </a>
-                </li>
+                <MobileTrigger className="mobile_menu_button" style={{marginRight: 0}}>
+                  <span onClick={this.mobileNav}>
+                    {this.state.navOpen ?
+                        <FontAwesomeIcon
+                            icon={["fas", "times"]}
+                            style={{fontSize: '1.5em'}}
+                        /> :
+                        <FontAwesomeIcon
+                            icon={["fas", "bars"]}
+                            style={{fontSize: '1.5em'}}
+                        />
+                    }
+                  </span>
+                </MobileTrigger>
 
-                <li className="menu-item menu-item-type-custom menu-item-object-custom  narrow">
-                  <Link href="/give">
-                    <a className={router.asPath === '/give' ? 'current' : ''}>
-                      <i className="menu_icon blank fa"/>
-                      <span>
-                        Give
-                        <span className="underline_dash"/>
-                      </span>
-                    </a>
-                  </Link>
-                </li>
-                {props.isLive &&
-                <li>
-                  <a
-                      href="http://live.mysecondchancechurch.com"
-                      target="_blank"
-                      rel="noopener"
-                  >
-                      <span>
-                        Watch Live
-                        <span className="underline_dash"/>
-                      </span>
-                  </a>
-                </li>
-                }
-              </ul>
-            </Nav>
-          </Container>
-        </Header>
+                <Nav className="main_menu drop_down right" navOpen={this.state.navOpen}>
+                  <ul>
+                    <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-104 current_page_item active narrow">
+                      <Link href="/">
+                        <a className={router.asPath === '/' ? 'current' : ''}>
+                          <i className="menu_icon blank fa"/>
+                          <span>
+                            Home
+                            <span className="underline_dash"/>
+                          </span>
+                        </a>
+                      </Link>
+                    </li>
+
+                    <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-104 current_page_item active narrow">
+                      <a href="https://www.youtube.com/c/SecondChanceChurch" className={router.asPath === '/sermons' ? 'current' : ''}>
+                        <i className="menu_icon blank fa"/>
+                        <span>
+                          Sermons
+                          <span className="underline_dash"/>
+                        </span>
+                      </a>
+                    </li>
+
+                    <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-104 current_page_item active narrow">
+                      <a href="/serve" className={router.asPath === '/serve' ? 'current' : ''}>
+                        <i className="menu_icon blank fa"/>
+                        <span>
+                          Serve
+                          <span className="underline_dash"/>
+                        </span>
+                      </a>
+                    </li>
+
+                    <li className="menu-item menu-item-type-custom menu-item-object-custom  narrow">
+                      <Link href="/give">
+                        <a className={router.asPath === '/give' ? 'current' : ''}>
+                          <i className="menu_icon blank fa"/>
+                          <span>
+                            Give
+                            <span className="underline_dash"/>
+                          </span>
+                        </a>
+                      </Link>
+                    </li>{console.log(isLive)}
+                    {isLive &&
+                    <li>
+                      <a
+                          href="http://live.mysecondchancechurch.com"
+                          target="_blank"
+                          rel="noopener"
+                      >
+                          <span>
+                            Watch Live
+                            <span className="underline_dash"/>
+                          </span>
+                      </a>
+                    </li>
+                    }
+                  </ul>
+                </Nav>
+              </Container>
+            </Header>
+          )}
+        </StoreConsumer>
     )
 
 

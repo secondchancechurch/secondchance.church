@@ -1,8 +1,9 @@
 {
   "presets": [
+    "@babel/preset-env",
     "next/babel"
   ],
   "plugins": [
-    ["emotion", "babel-plugin-inline-import-graphql-ast", { "inline": true }]
+    ["emotion", { "inline": true }]
   ]
 }

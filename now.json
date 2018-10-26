@@ -1,5 +1,8 @@
 {
   "name": "second-chance-church",
+  "env": {
+    "GRAPHQL_ENDPOINT": "@sc-graphql-endpoint"
+  },
   "alias": [
     "www.mysecondchancechurch.com",
     "mysecondchancechurch.com"

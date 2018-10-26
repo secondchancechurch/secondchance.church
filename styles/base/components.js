@@ -17,6 +17,7 @@ export const Container = styled.div`
 
 export const Button = styled.a`
   background-color: #B11E23;
+  border: #B11E23 2px solid;
   border-radius: 4px;
   padding: 15px 30px;
   transition: all 0.3s ease-in-out;

@@ -1,17 +1,21 @@
-import ReactDOM from 'react-dom'
 import React, { Component } from 'react'
+import Head from 'next/head'
 
 import { Layout } from "../../Layout"
-import { Container } from "../../styles/base/components"
+import { Container, Button } from "../../styles/base/components"
 import { SEO } from "../../Layout/seo"
 import styled, { css } from 'react-emotion'
 import {variables, colors} from "../../styles/vars";
 
 const Hero = styled('div')`
   background-color: ${colors.primary};
+  background-image: url("/static/serve.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   text-align: center;
   position: relative;
-  min-height: 30vh;
+  min-height: 50vh;
   display: flex;
   align-content: center;
   
@@ -57,15 +61,7 @@ const Hero = styled('div')`
 
 const Content = styled('section')`
 
-  a {
-    text-decoration: none;
-    color: ${colors.primary};
-     
-    &:hover {
-      text-decoration: underline;
-    }
-  }
-
+  
   .container {
     max-width: 860px;
     padding: 60px;
@@ -73,10 +69,10 @@ const Content = styled('section')`
      align-items: center;
    
    iframe {
-      width: 100vw;
-      max-width: 800px;
-      margin-left: -20px;
-      margin-right: -20px;
+      width: 100%;
+      max-width: 700px;
+      display: block;
+      margin: 4rem auto 0;
    } 
     
     ul {
@@ -147,10 +143,13 @@ class Serve extends Component {
     return(
       <Layout>
         <div>
+          <Head>
+            <script src="https://js.churchcenter.com/modal/v1" />
+          </Head>
           <SEO
               title="Serve @ Second Chance"
-              description=""
-              image=""
+              description="We're so excited that you're interested in serving with us! Please fill out the interest form below, and we'll be in touch to discuss upcoming volunteer opportunities with you"
+              image="/static/serve.jpg"
           />
           <Hero>
             <Container>
@@ -162,14 +161,9 @@ class Serve extends Component {
           <Content>
             <Container>
               <div className="container">
-                <iframe
-                  src="https://rock.mysecondchancechurch.com/page/517"
-                  className={css`height: ${this.state.iFrameHeight};`}
-                  frameBorder="0"
-                  allowFullScreen
-                  scroll="no"
-                  ref={(iFrame) => { this.iFrame = iFrame } }
-                />
+                <h2>Volunteer Interest</h2>
+                <p>We're so excited that you're interested in serving with us! Please fill out the interest form below, and we'll be in touch to discuss upcoming volunteer opportunities with you</p>
+                <Button href="https://secondchance.churchcenter.com/people/forms/3185?open-in-church-center-modal=true">Sign Up</Button>
               </div>
             </Container>
           </Content>

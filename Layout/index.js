@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Link from 'next/link'
 import Head from 'next/head'
+import MessengerCustomerChat from 'react-messenger-customer-chat'
 
 // Analytics
 import ReactGA from 'react-ga';
@@ -51,16 +52,6 @@ export class Layout extends Component {
     }
   }
 
-  componentWillMount = () => {
-    const estTime = moment(moment.tz("America/New_York").format('HH:mm'))._i;
-
-    if (moment().day() === 0 && ((estTime >= '10:45' && estTime <= '12:00') || (estTime >= '14:45' && estTime <= '15:35') || (estTime >= '16:50' && estTime <= '17:35') || (estTime >= '18:50' && estTime <= '19:35'))) {
-      this.setState({
-        isLive: true,
-      })
-    }
-  }
-
   componentDidMount = () => {
     ReactGA.pageview(window.location.pathname + window.location.search);
 
@@ -106,6 +97,14 @@ export class Layout extends Component {
         <footer>
           ©2018 Second Chance Church | <Link href={"/legal"}><a>Privacy Policy</a></Link>
         </footer>
+        <MessengerCustomerChat
+            pageId="514434678921389"
+            appId="250448395574524"
+            themeColor="#B11E23"
+            minimized={true}
+            loggedInGreeting="Hi! Welcome to Second Chance Church!"
+            loggedOutGreeting="Hi! Welcome to Second Chance Church!"
+        />
       </LayoutStyles>
     );
   }
